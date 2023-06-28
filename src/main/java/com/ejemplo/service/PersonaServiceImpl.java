@@ -36,6 +36,7 @@ public class PersonaServiceImpl implements PersonaService {
     }
 
     @Override
+    @Transactional
     public Persona update(Persona persona) {
         Persona personaBD = this.getById(persona.getId());
 
@@ -46,6 +47,7 @@ public class PersonaServiceImpl implements PersonaService {
     }
 
    @Override
+   @Transactional
     public void deleteById(Long id) {
        Persona persona = repository.findById(id).orElse(null);
        if (persona == null){

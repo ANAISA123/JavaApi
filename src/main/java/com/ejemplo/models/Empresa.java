@@ -23,15 +23,12 @@ public class Empresa {
 
     private String nombre;
 
-    private Long nit;
+    private String nit;
 
-    private List<Persona>personas;
 
-    public Empresa(String nombre,Long nit,List<Persona>personas){
+    public Empresa(String nombre,String nit){
         this.nombre = nombre;
         this.nit = nit;
-        this.personas = personas;
-
     }
 
 }
