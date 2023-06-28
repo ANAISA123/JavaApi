@@ -17,7 +17,6 @@ public class PaisRequest {
     private String capital;
 
     @NotBlank
-    @Pattern(regexp = "^[0-9]{5,15}",message="solo debe contener numeros y su longitud debe ser mayor a 5")
     private String moneda;
 
 

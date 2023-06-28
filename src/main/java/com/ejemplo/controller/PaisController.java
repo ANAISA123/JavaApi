@@ -10,7 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-
+@RestController
+@RequestMapping("/pais")
 public class PaisController {
     @Autowired
     private PaisService service;
@@ -18,7 +19,7 @@ public class PaisController {
 
     @GetMapping
     public ResponseEntity<ResponseOk> getAll(){
-        return  ResponseOk.createResponse(HttpStatus.OK,"Listado personas",service.getAll());
+        return  ResponseOk.createResponse(HttpStatus.OK,"Listado de paises",service.getAll());
     }
 
     @GetMapping("/{id}")
@@ -31,11 +32,11 @@ public class PaisController {
     public ResponseEntity<ResponseOk> deleteById(@PathVariable Long id){
         service.deleteById(id);
 
-        return ResponseOk.createResponse(HttpStatus.OK, "Se elimino la persona", null);
+        return ResponseOk.createResponse(HttpStatus.OK, "Se elimino el pais", null);
     }
     @PostMapping
     public ResponseEntity<ResponseOk> create(@Valid @RequestBody PaisRequest paisRequest){
-        return  ResponseOk.createResponse(HttpStatus.OK,"usuario creado ",service.save(paisRequest.toPaisModel()));
+        return  ResponseOk.createResponse(HttpStatus.OK,"pais creado ",service.save(paisRequest.toPaisModel()));
     }
 
     @PutMapping("/{id}")

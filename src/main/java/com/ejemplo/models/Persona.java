@@ -26,12 +26,15 @@ public class Persona {
 
     private int edad;
 
-    public Persona(String nombre, String apellido, String documento, String email, int edad) {
+    @ManyToOne
+    private Pais pais;
+    public Persona(String nombre, String apellido, String documento, String email, int edad, Pais pais) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.documento = documento;
         this.email = email;
         this.edad = edad;
+        this.pais = pais;
     }
 
 

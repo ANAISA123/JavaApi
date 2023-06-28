@@ -1,11 +1,15 @@
 package com.ejemplo.request;
 
+import com.ejemplo.models.Pais;
 import com.ejemplo.models.Persona;
+import com.ejemplo.service.PaisService;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 
@@ -28,14 +32,20 @@ public class PersonaRequest {
 
     private int edad;
 
+    @NotNull
+    private Long pais_id;
+
     public Persona toPersonaModel(){
+        Pais pais = new Pais();
+        pais.setId(this.pais_id);
         Persona persona = new Persona(
                 this.getNombre(),
                 this.getApellido(),
                 this.getDocumento(),
                 this.getEmail(),
-                this.getEdad()
-        );
+                this.getEdad(),
+                pais
+                );
         return persona;
     }
 

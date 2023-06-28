@@ -1,11 +1,13 @@
 package com.ejemplo.models;
 
+import com.ejemplo.service.PaisServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,6 +23,7 @@ public class Pais {
     private String capital;
     private int habitantes;
     private String moneda;
+
 
     public Pais(String nombre, String capital, int habitantes, String moneda) {
         this.id = id;
