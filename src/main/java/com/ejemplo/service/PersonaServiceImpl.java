@@ -1,6 +1,7 @@
 package com.ejemplo.service;
 
 import com.ejemplo.commons.ResourceNotFoundException;
+import com.ejemplo.models.Empresa;
 import com.ejemplo.models.Persona;
 import com.ejemplo.repository.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,9 @@ public class PersonaServiceImpl implements PersonaService {
 
     @Autowired//para que spring vaya y busque el componente que necesito.
     private PersonaRepository repository;
+
+    @Autowired
+    private EmpresaService empresaService;
 
 
     @Override
@@ -32,6 +36,8 @@ public class PersonaServiceImpl implements PersonaService {
     @Override
     @Transactional
     public Persona save(Persona persona) {
+        Empresa empresaDB = empresaService.getById(persona.getEmpresa().getId());
+        persona.setEmpresa(empresaDB);
         return repository.save(persona);
     }
 
