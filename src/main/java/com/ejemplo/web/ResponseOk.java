@@ -27,10 +27,6 @@ public class ResponseOk {
 
     public static ResponseEntity<ResponseOk> createResponse(HttpStatus status, String message, Object data) {
         ResponseOk response = new ResponseOk(LocalDateTime.now(), status, message, data);
-
         return new ResponseEntity<ResponseOk>(response, status);
     }
-
-
-
 }

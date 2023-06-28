@@ -15,7 +15,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import java.util.HashMap;
 import java.util.Map;
 
-@RestControllerAdvice
+@ControllerAdvice
 public class GlobalExeptionHandler {
 
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
@@ -39,10 +39,9 @@ public class GlobalExeptionHandler {
     
 
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ResponseError> handleResourceNotFoundException(ResourceNotFoundException ex){
-
-        return ResponseError.ErrorResponse( HttpStatus.NOT_FOUND, "No se encontró el recurso", ex.getMessage()) ;    }
-
-
+    public ResponseEntity<ResponseError> handleResourceNotFoundException(ResourceNotFoundException ex)
+    {
+        return ResponseError.ErrorResponse( HttpStatus.NOT_FOUND, "No se encontró el recurso", ex.getMessage()) ;
+    }
 }
 
